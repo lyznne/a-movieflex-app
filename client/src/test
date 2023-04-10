@@ -1,0 +1,54 @@
+//   const searchMovies = async (title) => {
+//   const options = {
+//     method: 'GET',
+//     headers: {
+//       'X-RapidAPI-Key': 'afc86d8355mshd921bfdf6fd9b63p15c2acjsndff5a67e9467',
+//       'X-RapidAPI-Host': 'moviesdatabase.p.rapidapi.com'
+//     }
+//   };
+//
+//   const idsListResponse = await fetch(`https://moviesdatabase.p.rapidapi.com/titles/x/titles-by-search?limit=10&search=${title}`, options);
+//   const idsList = await idsListResponse.json();
+//   const ids = idsList.map(movie => movie.id).join('%2C');
+//
+//   const moviesResponse = await fetch(`https://moviesdatabase.p.rapidapi.com/titles/x/titles-by-ids?idsList=${ids}`, options);
+//   const moviesData = await moviesResponse.json();
+//
+//   setMovies(moviesData);
+// };
+
+
+const searchMovies = async (title) => {
+    const options = {
+      method: 'GET',
+      headers: {
+        'X-RapidAPI-Key': 'afc86d8355mshd921bfdf6fd9b63p15c2acjsndff5a67e9467',
+        'X-RapidAPI-Host': 'moviesdatabase.p.rapidapi.com'
+      }
+    };
+
+    const response = await fetch(`https://moviesdatabase.p.rapidapi.com/titles/x/titles-by-ids?idsList=tt0001702%2Ctt0001856%2Ctt0001856`, options);
+    const data = await response.json();
+
+    setMovies(data.search); // Assuming the API response is an array of movies
+  };
+
+   // <div className="navbar">
+    //   <Link to="/" className="logo">
+    //     Happy Teens
+    //   </Link>
+    //   <ul className="navbar-nav">
+    //     <li className="nav-item">
+    //       <Link to="/signin" className="nav-link">Sign In</Link>
+    //     </li>
+    //     <li className="nav-item">
+    //       <Link to="/login" className="nav-link">Login</Link>
+    //     </li>
+    //     <li className="nav-item">
+    //       <Link to="/" className="nav-link">Home</Link>
+    //     </li>
+    //     <li className="nav-item">
+    //       <Link to="/genres" className="nav-link">Genres</Link>
+    //     </li>
+    //   </ul>
+    // </div>
